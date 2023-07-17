@@ -30,7 +30,13 @@ class PauseScene extends BaseScene{
       textGO.setStyle({fill:'#fff'})
     })
     textGO.on('pointerup', ()=>{
-        console.log("click!")
+         if(menuItem.scene  && menuItem.text === "Continue"){
+            this.scene.stop();
+            this.scene.resume(); //resumes scene running parallal
+         }else{
+            this.scene.stop("PlayScene");
+            this.scene.start(menuItem.scene)
+         }
     })
   }
 }
