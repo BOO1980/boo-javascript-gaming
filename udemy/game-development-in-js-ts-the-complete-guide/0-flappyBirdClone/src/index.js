@@ -15,6 +15,14 @@ const SHARED_CONFIG ={
 	startPosition: BIRD_POSITION,
 	pauseButtonPosition: PAUSE_BUTTON_POSITION
 }
+
+const Scenes = [PreloadScene, MenuScene, PlayScene];
+
+//interating scenes and intialising them 
+const createScene = Scene => new Scene(SHARED_CONFIG)
+const initScenes = ()=>Scenes.map(createScene)
+
+
 const config = {
 	type: Phaser.AUTO, //default browser is webGL (web graphics library)
 	...SHARED_CONFIG,
@@ -24,7 +32,7 @@ const config = {
 			debug: true,
 		},
 	},
-	scene: [PreloadScene, new MenuScene(SHARED_CONFIG), new PlayScene(SHARED_CONFIG)]
+	scene: initScenes()
 };
 
 //loading assets, such as images, music, animations
