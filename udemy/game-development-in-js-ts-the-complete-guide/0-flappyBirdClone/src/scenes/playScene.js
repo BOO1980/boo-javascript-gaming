@@ -82,6 +82,7 @@ class PlayScene extends Phaser.Scene {
     pauseButton.on('pointerdown', () => {
       this.physics.pause();
       this.scene.pause();
+      this.scene.launch('PauseScene'); //runs in parallel with current scene
     })
   }
 
