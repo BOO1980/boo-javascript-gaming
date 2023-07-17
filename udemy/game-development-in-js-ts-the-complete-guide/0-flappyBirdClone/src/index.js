@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import PlayScene from "./scenes/playScene";
+import MenuScene from "./scenes/menuScene";
 
 const WIDTH = 800;
 const HEIGHT = 600;
@@ -21,7 +22,7 @@ const config = {
 			debug: true,
 		},
 	},
-	scene: [new PlayScene(SHARED_CONFIG)]
+	scene: [new MenuScene(SHARED_CONFIG), new PlayScene(SHARED_CONFIG)]
 };
 
 //loading assets, such as images, music, animations
