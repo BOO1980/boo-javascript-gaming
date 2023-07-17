@@ -1,4 +1,5 @@
 import Phaser from "phaser";
+
 import PlayScene from "./scenes/PlayScene";
 import MenuScene from "./scenes/MenuScene";
 import PreloadScene from "./scenes/PreloadScene";
@@ -23,7 +24,7 @@ const config = {
 			debug: true,
 		},
 	},
-	scene: [new PreloadScene(), new MenuScene(SHARED_CONFIG), new PlayScene(SHARED_CONFIG)]
+	scene: [PreloadScene, new MenuScene(SHARED_CONFIG), new PlayScene(SHARED_CONFIG)]
 };
 
 //loading assets, such as images, music, animations
@@ -32,6 +33,5 @@ function preload() {
 	this.load.image("bird", "assets/bird.png");
 	this.load.image("pauseButton", "assets/pauseButton.png");
 }
-
 
 new Phaser.Game(config);
