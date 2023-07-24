@@ -1,17 +1,12 @@
 import BaseScene from "./BaseScene";
 
-
 class PauseScene extends BaseScene{
 
   constructor(config) {
     super('PauseScene', config);
     this.menu = [
-        {
-            scene:'PlayScene', text:'Continue'
-        },
-        {
-            scene: "MenuScene", text:'Exit'
-        },
+        { scene:'PlayScene', text:'Continue'},
+        { scene: "MenuScene", text:'Exit'},
     ]
   }
 
@@ -32,7 +27,7 @@ class PauseScene extends BaseScene{
     textGO.on('pointerup', ()=>{
          if(menuItem.scene  && menuItem.text === "Continue"){
             this.scene.stop();
-            this.scene.resume(); //resumes scene running parallal
+            this.scene.resume(menuItem.scene); //resumes scene running parallal
          }else{
             this.scene.stop("PlayScene");
             this.scene.start(menuItem.scene)
